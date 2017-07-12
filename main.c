@@ -68,6 +68,21 @@ void print_pos_ordem(ArvAVL_t *raiz){
 }
 
 /*---------------------------------------*/
+ArvAVL_t *Busca(ArvAVL_t *raiz, int valor){
+    if(raiz == NULL){
+        printf("\nChave nao encontrada\n");
+        return criar_avl(-1);
+    }
+    else if (raiz->info == valor){
+        printf("\nValor encontrado!\n");
+        return raiz;
+    } else {
+        if (valor < raiz->info)
+            Busca(raiz->esq, valor);
+        else
+            Busca(raiz->dir, valor);
+    }
+}
 
 ArvAVL_t *RotacaoLL(ArvAVL_t *A){//LL
     printf("RotacaoLL no elemento %d\n", A->info);
@@ -289,6 +304,16 @@ int main()
 //    printf("\n\n--------------------------------------------\n\n");
 //    printf("\n\nArvore completa:\n");
 //    print_arvore(raiz, 0);
+//
+//    printf("\n\n--------------------------------------------\n\n");
+//    printf("\n\n Busca pela chave 4:\n");
+//    ArvAVL_t *resultado = Busca(raiz, 4);
+//    printf("Info retornada no ponteiro de resultado: %d", resultado->info);
+//
+//    printf("\n\n--------------------------------------------\n\n");
+//    printf("\n\n Busca pela chave 10:\n");
+//    resultado = Busca(raiz, 10);
+//    printf("Info retornada no ponteiro de resultado: %d\n\n", resultado->info);
 //
 //    printf("\n\n--------------------------------------------\n\n");
 //    printf("\n\nRemocao com 2 filhos:\n");
